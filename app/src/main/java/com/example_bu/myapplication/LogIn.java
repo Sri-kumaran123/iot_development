@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,7 @@ public class LogIn extends AppCompatActivity {
     EditText name,email,password;
 
     ImageView b;
-
+    TextView f;
     //Button l,s;
 
     @SuppressLint("MissingInflatedId")
@@ -46,6 +47,7 @@ public class LogIn extends AppCompatActivity {
         password=findViewById(R.id.log_in_password);
         signin=findViewById(R.id.log_in_signbtn);
         login=findViewById(R.id.log_in_btn);
+        f=findViewById(R.id.forgot);
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +61,19 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //code for login
+                finish();
+                Intent ih=new Intent(LogIn.this, HomeActivity2.class);
+                startActivity(ih);
+
+            }
+        });
+
+        f.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(LogIn.this,SNotify.class);
+                i.putExtra("value","Email Send");
+                startActivity(i);
             }
         });
 

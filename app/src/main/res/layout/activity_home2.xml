@@ -5,6 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity2">
+    tools:context=".HomeActivity2"
+    android:background="@color/main">
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+            <include layout="@layout/hometoolbar"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/float_btn"
+                android:backgroundTint="@color/main"
+                android:id="@+id/float_btn"
+                />
+
+        </RelativeLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

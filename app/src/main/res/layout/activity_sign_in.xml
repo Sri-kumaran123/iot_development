@@ -26,32 +26,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/main"
+            >
+
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
-            android:background="@drawable/btnback"
             android:hint="Enter Your name"
             android:padding="12dp"
             android:id="@+id/sign_in_name"/>
-
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             style="@style/headt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/main"
+           >
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
-            android:background="@drawable/btnback"
             android:hint="Enter Email id"
             android:padding="12dp"
             android:id="@+id/sign_in_email"/>
-
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -66,7 +77,8 @@
             android:layout_height="wrap_content"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/main"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/main2">
 
             <EditText
                 android:id="@+id/sign_in_password"
@@ -90,7 +102,8 @@
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="@color/main">
+            app:boxStrokeColor="@color/main"
+            app:passwordToggleTint="@color/main2">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

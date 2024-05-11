@@ -33,16 +33,22 @@
             android:layout_height="wrap_content"
             android:text="Email"
             />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/main"
+            >
+
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
-            android:background="@drawable/btnback"
             android:hint="Enter Email id"
             android:padding="12dp"
             android:id="@+id/log_in_email"/>
-
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             style="@style/headt"
             android:layout_width="wrap_content"
@@ -52,18 +58,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
-            >
+            app:passwordToggleTint="@color/main2" >
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="12dp"
-            android:background="@drawable/btnback"
             android:hint="Enter your password"
             android:inputType="textPassword"
             android:padding="12dp"
             android:id="@+id/log_in_password"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Forgot password?"
+            android:textAlignment="textEnd"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/main"
+            android:layout_marginVertical="6dp"
+            android:id="@+id/forgot"/>
 
         <Button
             android:layout_width="match_parent"
