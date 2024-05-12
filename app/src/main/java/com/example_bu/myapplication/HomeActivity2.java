@@ -7,8 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeActivity2 extends AppCompatActivity {
+
+    RecyclerView r;
+    RecyclerView.LayoutManager l;
+    RvAdapter rv;
+    int[] arr={R.drawable.arrow_black,R.drawable.baseline_cloud_done_24,R.drawable.float_btn,R.drawable.ic_launcher_foreground};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +28,11 @@ public class HomeActivity2 extends AppCompatActivity {
             return insets;
         });
 
+        r=findViewById(R.id.rcview);
+        l=new GridLayoutManager(this,2);
+        r.setLayoutManager(l);
+        rv=new RvAdapter(arr);
+        r.setAdapter(rv);
+        r.setHasFixedSize(true);
     }
 }

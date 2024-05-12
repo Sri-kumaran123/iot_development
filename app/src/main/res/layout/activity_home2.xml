@@ -27,6 +27,15 @@
                 android:id="@+id/float_btn"
                 />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="60dp"
+                android:id="@+id/rcview"
+                android:padding="5dp"/>
+
+
+
         </RelativeLayout>
 
 

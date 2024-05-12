@@ -2,6 +2,7 @@ package com.example_bu.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ public class SignIn extends AppCompatActivity {
 
         name=findViewById(R.id.sign_in_name);
         email=findViewById(R.id.sign_in_email);
-        password=findViewById(R.id.log_in_password);
+        password=findViewById(R.id.sign_in_password);
         cpassword=findViewById(R.id.sign_in_cpassword);
         b=findViewById(R.id.back);
         b.setOnClickListener(new View.OnClickListener() {
@@ -45,11 +46,49 @@ public class SignIn extends AppCompatActivity {
         signin2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent notify=new Intent(SignIn.this,SNotify.class);
-                notify.putExtra("value","Rigistered");
-                startActivity(notify);
-                finish();
+                if(vaildate(name,1)&&vaildate(email,2)&&vaildate(password,3)&&vaildate(cpassword,3)){
+                    Intent notify=new Intent(SignIn.this,SNotify.class);
+                    notify.putExtra("value","Rigistered");
+                    startActivity(notify);
+                    finish();
+                }
+
+
             }
         });
+    }
+    private static boolean vaildate(EditText ed,int n){
+        String str=ed.getText().toString();
+        switch (n){
+            case 1:
+                if(str.isEmpty()) {
+                    ed.setError("Cannot be empty");
+                    return false;
+                }
+                break;
+            case 2:
+                if (!Patterns.EMAIL_ADDRESS.matcher(str).matches()) {
+                    ed.setError("InValide Email");
+                    return false;
+                }
+                break;
+            case 3:
+                if(str.isEmpty()){
+                    ed.setError("Cannot be empty");
+                    return false;
+                }
+                else if(str.length()<8) {
+                    ed.setError("password must contain at least 8 ch");
+                    return false;
+                }
+                break;
+            default:
+                return true;
+
+
+        }
+        return true;
+
+
     }
 }
