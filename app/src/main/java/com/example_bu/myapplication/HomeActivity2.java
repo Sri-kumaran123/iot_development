@@ -1,5 +1,6 @@
 package com.example_bu.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -10,12 +11,15 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class HomeActivity2 extends AppCompatActivity {
+public class HomeActivity2 extends AppCompatActivity implements RvInterface{
 
     RecyclerView r;
     RecyclerView.LayoutManager l;
     RvAdapter rv;
-    int[] arr={R.drawable.arrow_black,R.drawable.baseline_cloud_done_24,R.drawable.float_btn,R.drawable.ic_launcher_foreground};
+    int[] arr={R.drawable.arrow_black,R.drawable.baseline_cloud_done_24,R.drawable.float_btn,R.drawable.ic_launcher_foreground,R.drawable.arrow_black,R.drawable.baseline_cloud_done_24,R.drawable.float_btn,R.drawable.ic_launcher_foreground};
+    String[] stra={"home","factory","school","default","home","factory","school","default"};
+
+    String[] str2={"12.04.34.3","23.124.35.23","234.34.56.7","234.56.7.8","12.04.34.3","23.124.35.23","234.34.56.7","234.56.7.8"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +35,18 @@ public class HomeActivity2 extends AppCompatActivity {
         r=findViewById(R.id.rcview);
         l=new GridLayoutManager(this,2);
         r.setLayoutManager(l);
-        rv=new RvAdapter(arr);
+        rv=new RvAdapter(this, arr, stra);
         r.setAdapter(rv);
         r.setHasFixedSize(true);
+    }
+
+    @Override
+    public void ItemClicked(int position) {
+        Intent finalI=new Intent(HomeActivity2.this,Actionbtn.class);
+        finalI.putExtra("id",str2[position]);
+        finalI.putExtra("h",stra[position]);
+        startActivity(finalI);
+
+
     }
 }
