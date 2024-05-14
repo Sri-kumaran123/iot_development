@@ -2,6 +2,7 @@ package com.example_bu.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +39,7 @@ public class HomeActivity2 extends AppCompatActivity implements RvInterface{
         rv=new RvAdapter(this, arr, stra);
         r.setAdapter(rv);
         r.setHasFixedSize(true);
+        Toast.makeText(this, getIntent().getStringExtra("userid"), Toast.LENGTH_SHORT).show();
     }
 
     @Override

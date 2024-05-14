@@ -11,10 +11,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
 
@@ -25,6 +31,7 @@ public class LogIn extends AppCompatActivity {
     ImageView b;
     TextView f;
     //Button l,s;
+    FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -37,6 +44,7 @@ public class LogIn extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        mAuth=FirebaseAuth.getInstance();
 
         b=findViewById(R.id.back);
         b.setOnClickListener(new View.OnClickListener() {
@@ -64,9 +72,24 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(vaildate(email,1)&&vaildate(password,0)){
-                    finish();
-                    Intent ih=new Intent(LogIn.this, HomeActivity2.class);
-                    startActivity(ih);
+                    mAuth.signInWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        finish();
+                                        Intent ih=new Intent(LogIn.this, HomeActivity2.class);
+                                        ih.putExtra("userid",mAuth.getCurrentUser().getUid());
+                                        startActivity(ih);
+
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+
+                                    }
+                                }
+                            });
+
                 }
                 //code for login
 

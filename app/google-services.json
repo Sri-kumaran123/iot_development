@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1014040505025",
+    "project_id": "my-application-iot-8060b",
+    "storage_bucket": "my-application-iot-8060b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014040505025:android:07dadf4df439f65d89c240",
+        "android_client_info": {
+          "package_name": "com.example_bu.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXyP8P4L5fInoru1njR-Eyg55KuWZDsqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
